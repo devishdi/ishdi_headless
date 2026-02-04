@@ -1,0 +1,4 @@
+administer ishdi_headless configuration:
+  title: "Administer Ishdi headless configuration"
+  description: "Ishdi headless API configuration."
+  restrict access: true

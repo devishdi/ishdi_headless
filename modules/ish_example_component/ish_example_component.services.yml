@@ -1,0 +1,6 @@
+services:
+  ish_example_component.component_standard_text:
+    class: Drupal\ish_example_component\Component\StandardText
+    parent: ishdi_headless.component_base
+    tags:
+      - { name: ish_component, type: ish_level0_standard_text }

@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ */
+
+declare(strict_types=1);
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\ishdi_headless\Event\IshApiFormEvent;
+
+/**
+ * Implements hook_form_alter().
+ *
+ * @param array<mixed> $form
+ * @param FormStateInterface $formState
+ * @param string $form_id
+ */
+function ishdi_headless_form_alter(array &$form, FormStateInterface $formState, string $form_id): void
+{
+    if (1 === preg_match('/^node_api[_a-zA-Z]*_form$/', $form_id)) {
+        $event = new IshApiFormEvent($form, $formState, $form_id);
+        $eventDispatcher = \Drupal::service('event_dispatcher');
+        $eventDispatcher->dispatch($event, IshApiFormEvent::NODE_FORM_ALTER);
+    }
+}

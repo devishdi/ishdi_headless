@@ -1,0 +1,11 @@
+status: true
+dependencies:
+  enforced:
+    module:
+      - ishdi_headless
+id: ish_level0_standard_text
+label: "Standard Text"
+icon_uuid: null
+icon_default: null
+description: "Main Component - Standard Text"
+behavior_plugins: {}

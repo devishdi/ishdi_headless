@@ -1,0 +1,11 @@
+name: ISHDI Headless
+type: module
+description: Headless Component Driven API with Paragraphs
+package: ISHDI
+core: 1.x
+core_version_requirement: ^8 || ^9 || ^10 || ^11
+dependencies:
+  - drupal:node
+  - drupal:paragraphs
+  - drupal:text
+  - drupal:entity_reference_revisions

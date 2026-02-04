@@ -1,0 +1,63 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for ISHDI Headless API module.
+ */
+
+/**
+ * Implements hook_schema().
+ *
+ * @return array<mixed>
+ */
+function ishdi_headless_schema(): array
+{
+    $schema['ish_api_path'] = [
+        'description' => 'Add Path of the page.',
+        'fields' => [
+            'pid' => [
+                'description' => 'Path ID.',
+                'type' => 'serial',
+                'unsigned' => true,
+                'not null' => true,
+            ],
+            'path' => [
+                'description' => 'The path for API call.',
+                'type' => 'varchar_ascii',
+                'length' => 250,
+                'not null' => true,
+                'default' => '',
+            ],
+            'bundle' => [
+                'description' => 'The name of the entity type.',
+                'type' => 'varchar_ascii',
+                'length' => DRUPAL_EXTENSION_NAME_MAX_LENGTH,
+                'not null' => true,
+                'default' => '',
+            ],
+            'type' => [
+                'description' => 'The machine name of entity.',
+                'type' => 'varchar_ascii',
+                'length' => 64,
+                'not null' => true,
+                'default' => '',
+            ],
+            'id' => [
+                'description' => 'The primary key of the object using the file.',
+                'type' => 'int',
+                'unsigned' => true,
+                'not null' => true,
+                'default' => 0,
+            ],
+        ],
+        'primary key' => ['pid'],
+        'unique keys' => [
+            'path' => ['path'],
+            'type_id' => ['type', 'id'],
+        ],
+        'indexes' => ['bundle_type' => ['bundle', 'type']],
+    ];
+
+
+    return $schema;
+}

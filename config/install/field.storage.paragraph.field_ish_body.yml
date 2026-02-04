@@ -1,0 +1,20 @@
+status: true
+dependencies:
+  enforced:
+    module:
+      - ishdi_headless
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_ish_body
+field_name: field_ish_body
+entity_type: paragraph
+type: text_long
+settings: {}
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {}
+persist_with_no_fields: false
+custom_storage: false

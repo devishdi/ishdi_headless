@@ -1,0 +1,40 @@
+services:
+  ishdi_headless.app_path:
+    class: Drupal\ishdi_headless\IshCore\IshPath
+    arguments: ["@database"]
+  ishdi_headless.form_alter_subscriber:
+    class: Drupal\ishdi_headless\EventSubscriber\IshContentFormAlter
+    tags:
+      - { name: "event_subscriber" }
+  ishdi_headless.strict_request:
+    class: Drupal\ishdi_headless\StrictRequestStack
+    arguments: ["@request_stack"]
+  logger.channel.ishdi_headless:
+    parent: logger.channel_base
+    arguments: ["ish"]
+  ishdi_headless.component_manager:
+    class: Drupal\ishdi_headless\IshCore\Component\IshComponentManager
+    tags:
+      - { name: service_collector, tag: ish_component, call: addComponent }
+  ishdi_headless.content_base:
+    class: Drupal\ishdi_headless\IshCore\Content\IshContentBase
+    abstract: true
+  ishdi_headless.node_base:
+    class: Drupal\ishdi_headless\IshCore\Content\IshNodeBase
+    arguments: ["@ishdi_headless.component_manager"]
+    abstract: true
+    parent: ishdi_headless.content_base
+  ishdi_headless.component_base:
+    class: Drupal\ishdi_headless\IshCore\Component\IshComponentBase
+    parent: ishdi_headless.content_base
+  ishdi_headless.page_content:
+    class: Drupal\ishdi_headless\IshCore\Content\IshPageContent
+    parent: ishdi_headless.node_base
+  ishdi_headless.page_api:
+    class: Drupal\ishdi_headless\IshCore\IshPageApi
+    arguments:
+      [
+        "@database",
+        "@logger.channel.ishdi_headless",
+        "@ishdi_headless.page_content",
+      ]

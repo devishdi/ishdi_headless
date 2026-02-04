@@ -1,0 +1,32 @@
+status: true
+dependencies:
+  enforced:
+    module:
+      - ishdi_headless
+  config:
+    - field.storage.node.field_ish_components
+    - node.type.api
+    - paragraphs.paragraphs_type.ish_level0_standard_text
+  module:
+    - entity_reference_revisions
+id: node.api.field_ish_components
+field_name: field_ish_components
+entity_type: node
+bundle: api
+label: Components
+description: ""
+required: false
+translatable: false
+default_value: {}
+default_value_callback: ""
+settings:
+  handler: "default:paragraph"
+  handler_settings:
+    target_bundles:
+      ish_level0_standard_text: ish_level0_standard_text
+    negate: 0
+    target_bundles_drag_drop:
+      ish_level0_standard_text:
+        weight: 1
+        enabled: true
+field_type: entity_reference_revisions

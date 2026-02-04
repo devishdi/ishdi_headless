@@ -1,0 +1,22 @@
+status: true
+dependencies:
+  enforced:
+    module:
+      - ishdi_headless
+  config:
+    - field.storage.paragraph.field_ish_body
+    - paragraphs.paragraphs_type.ish_level0_standard_text
+  module:
+    - text
+id: paragraph.ish_level0_standard_text.field_ish_body
+field_name: field_ish_body
+entity_type: paragraph
+bundle: ish_level0_standard_text
+label: Body
+description: ""
+required: false
+translatable: true
+default_value: {}
+default_value_callback: ""
+settings: {}
+field_type: text_long

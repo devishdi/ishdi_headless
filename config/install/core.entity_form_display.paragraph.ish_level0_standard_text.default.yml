@@ -1,0 +1,36 @@
+status: true
+dependencies:
+  enforced:
+    module:
+      - ishdi_headless
+  config:
+    - field.field.paragraph.ish_level0_standard_text.field_ish_body
+    - field.field.paragraph.ish_level0_standard_text.field_ish_title
+    - paragraphs.paragraphs_type.ish_level0_standard_text
+  module:
+    - paragraphs
+    - text
+id: paragraph.ish_level0_standard_text.default
+targetEntityType: paragraph
+bundle: ish_level0_standard_text
+mode: default
+content:
+  field_ish_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ""
+    third_party_settings: {}
+  field_ish_body:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ""
+    third_party_settings: {}
+hidden:
+  created: true
+  status: true

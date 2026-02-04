@@ -1,0 +1,8 @@
+ishdi_headless.page_api:
+  path: "/api/ish/v1/page"
+  defaults:
+    _title: "API Page"
+    _controller: '\Drupal\ishdi_headless\Controller\IshPageController::contentPage'
+  methods: [GET]
+  requirements:
+    _access: "TRUE"

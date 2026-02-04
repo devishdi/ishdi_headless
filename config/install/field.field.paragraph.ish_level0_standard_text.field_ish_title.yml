@@ -1,0 +1,20 @@
+status: true
+dependencies:
+  enforced:
+    module:
+      - ishdi_headless
+  config:
+    - field.storage.paragraph.field_ish_title
+    - paragraphs.paragraphs_type.ish_level0_standard_text
+id: paragraph.ish_level0_standard_text.field_ish_title
+field_name: field_ish_title
+entity_type: paragraph
+bundle: ish_level0_standard_text
+label: "Title"
+description: "Add Heading"
+required: false
+translatable: false
+default_value: {}
+default_value_callback: ""
+settings: {}
+field_type: string
